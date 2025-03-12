@@ -1,5 +1,5 @@
 function render(variables = {}) {
-    console.log("📢 Renderizando con variables:", variables); // Depuración
+    console.log("📢 Renderizando con variables:", variables); 
   
     const {
       includeCover,
@@ -17,17 +17,14 @@ function render(variables = {}) {
       city,
     } = variables;
   
-    // 📌 Verificación de variables (Si alguna es `null`, usa un valor predeterminado)
     const fullName = `${name || "Lucy"} ${lastName || "Boilett"}`;
     const jobTitle = role || "Web Developer";
     const location = `${city || "Córdoba"}, ${country || "Spain"}`;
   
-    // 📌 Determinar si la imagen de portada debe mostrarse
     const coverImage = includeCover
       ? `<div class="cover"><img src="${background || "https://via.placeholder.com/800x200"}" /></div>`
       : "";
   
-    // 📌 Construcción de enlaces de redes sociales
     const socialLinks = `
       <ul class="position-${socialMediaPosition || "right"}">
         ${twitter ? `<li><a href="https://twitter.com/${twitter}" target="_blank"><i class="fa fa-twitter"></i></a></li>` : ""}
@@ -36,7 +33,7 @@ function render(variables = {}) {
         ${instagram ? `<li><a href="https://instagram.com/${instagram}" target="_blank"><i class="fa fa-instagram"></i></a></li>` : ""}
       </ul>`;
   
-    // 📌 Construcción del HTML
+
     document.querySelector("#widget_content").innerHTML = `
       <div class="widget">
         ${coverImage}
@@ -49,7 +46,6 @@ function render(variables = {}) {
     `;
   }
   
-  // ✅ Inicializar variables globales
   window.variables = {
     includeCover: true,
     background: null,
@@ -66,19 +62,16 @@ function render(variables = {}) {
     city: null
   };
   
-  // ✅ Renderizar la tarjeta inicial
   render(window.variables);
   
-  // ✅ Agregar event listeners (una sola vez)
   document.querySelectorAll(".picker").forEach(function (elm) {
     elm.addEventListener("input", function (e) {
       const attribute = e.target.dataset.variable;
       if (!attribute) return;
   
-      // 🔥 ACTUALIZAR DIRECTAMENTE LAS VARIABLES GLOBALES
       window.variables[attribute] = e.target.value || null;
   
-      console.log("🔄 Variable actualizada:", attribute, "=", window.variables[attribute]); // Depuración
+      console.log("🔄 Variable actualizada:", attribute, "=", window.variables[attribute]); 
   
       render(window.variables);
     });
