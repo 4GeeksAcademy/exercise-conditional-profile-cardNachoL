@@ -1,43 +1,39 @@
-/* Reset */
+/* Base Reset */
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #f5f5f5;
+  font-family: "Inter", "Open Sans", sans-serif;
+  background-color: #f9f9f9;
   color: #333;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #1e1e1e;
+    background-color: #121212;
     color: #eee;
   }
   .widget {
-    background-color: #2a2a2a;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
-  }
-  .widget h1,
-  .widget h2,
-  .widget h3 {
-    color: #eee;
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   }
 }
 
-/* Widget styling */
+/* Widget container */
 .widget {
   position: relative;
-  width: 90%;
-  max-width: 340px;
-  margin: 50px auto;
+  width: 100%;
+  max-width: 360px;
+  margin: 60px auto;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
   overflow: hidden;
-  animation: fadeInUp 0.5s ease;
+  padding-bottom: 20px;
+  animation: fadeIn 0.4s ease-out;
 }
 
-@keyframes fadeInUp {
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(15px);
@@ -54,104 +50,170 @@ body {
   display: block;
 }
 
+/* Avatar */
 .photo {
   position: absolute;
-  top: 110px;
+  top: 100px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  border: 4px solid #fff;
-  background-color: #eee;
+  border: 5px solid #fff;
+  background-color: #eaeaea;
   object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Text styles */
 .widget h1,
 .widget h2,
 .widget h3 {
   text-align: center;
-  margin: 15px 0 5px;
+  margin: 16px 0 4px;
+  font-weight: 500;
 }
 
 .widget h1 {
-  font-size: 24px;
-  margin-top: 60px;
+  font-size: 22px;
+  margin-top: 70px;
   font-weight: 600;
 }
 
 .widget h2 {
-  font-size: 16px;
-  font-weight: 400;
-  color: #777;
+  font-size: 15px;
+  color: #666;
 }
 
 .widget h3 {
   font-size: 14px;
-  color: #aaa;
+  color: #999;
 }
 
+/* Social media */
 .widget ul {
-  padding: 0;
   position: absolute;
   top: 20px;
+  padding: 0;
+  margin: 0;
 }
 
 .widget ul li {
   list-style: none;
+  margin: 6px 0;
 }
 
 .widget ul li a {
-  display: block;
-  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #5865f2;
   color: white;
-  background-color: #2cdfd3;
-  border-bottom: 1px solid #2cd5ca;
-  transition: background-color 0.3s;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.widget ul li:hover a {
-  background-color: #28c6bd;
+.widget ul li a:hover {
+  background-color: #404eed;
 }
 
+/* Social media positions */
 ul.position-left {
-  left: -40px;
-  border-radius: 5px 0 0 5px;
+  left: -50px;
 }
 
 ul.position-right {
-  right: -40px;
-  border-radius: 0 5px 5px 0;
+  right: -50px;
 }
 
-/* Filters form layout */
+/* Filters */
 .filters {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  padding: 20px;
-  background: white;
+  gap: 16px;
+  padding: 24px;
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
 }
 
 .filters li {
   list-style: none;
-  max-width: 120px;
+  max-width: 140px;
   width: 100%;
 }
 
 .filters label {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .filters input,
 .filters select {
   width: 100%;
-  padding: 6px;
+  padding: 8px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  font-size: 12px;
+  font-size: 13px;
+}
+.toggle-social {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: #5865f2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-social:hover {
+  background-color: #404eed;
+}
+
+.social-inline {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.social-inline li {
+  list-style: none;
+}
+
+.social-inline li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  border-radius: 50%;
+  background-color: #5865f2;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.social-inline li a:hover {
+  background-color: #404eed;
+}
+
+.widget.no-cover .photo {
+  top: 20px;
+  border: 3px solid #ddd;
+}
+
+.widget.no-cover h1 {
+  margin-top: 100px;
 }
