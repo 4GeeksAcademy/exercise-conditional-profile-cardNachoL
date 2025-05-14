@@ -19,7 +19,7 @@ module.exports = {
 },
 devtool: 'source-map',
 devServer: {
-  contentBase: path.resolve(__dirname, 'public'), // ✅ Webpack Dev Server v3
+  contentBase: path.resolve(__dirname, 'public'), // 
   historyApiFallback: true,
   port: port,
   open: true,

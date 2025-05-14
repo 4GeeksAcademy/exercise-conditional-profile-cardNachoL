@@ -3,7 +3,6 @@ import "../style/index.css";
 function render(variables = {}) {
   console.log("These are the current variables: ", variables);
 
-  // Cover
   let cover = "";
   if (variables.includeCover === false) {
     cover = "<div class='cover'></div>";
@@ -11,7 +10,6 @@ function render(variables = {}) {
     cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   }
 
-  // Social media links (mostrar siempre si hay valores)
   let links = [];
   if (variables.twitter) {
     links.push(
@@ -37,7 +35,6 @@ function render(variables = {}) {
   let socialMedia =
     links.length > 0 ? `<ul class="social-inline">${links.join("")}</ul>` : "";
 
-  // Info
   const name = variables.name || "Lucy";
   const lastName = variables.lastName || "Boilett";
   const role = variables.role || "Web Developer";
@@ -47,7 +44,6 @@ function render(variables = {}) {
   const widgetClass =
     variables.includeCover === false ? "widget no-cover" : "widget";
 
-  // Render card
   document.querySelector("#widget_content").innerHTML = `
     <div class="${widgetClass}">
       ${cover}
